@@ -1,0 +1,13 @@
+this is the first line written from the code 
+this is the second line written from the code 
+this is third line 
+this is fourth line 
+
+
+https://drive.google.com/file/d/1a0b-Qe4-ih-JBZ32ZAyiBxIE8yKQKY-l/view?usp=sharing
+
+pbix:
+https://drive.google.com/file/d/1ydA3G4wQxTmJTEifrSH6dmw_qKMitkAc/view?usp=sharing
+
+
+CONCAT(Name,'(',LEFT(Occupation,1),')');

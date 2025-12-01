@@ -1,0 +1,5 @@
+this is the first line written from the code 
+this is the second line written from the code 
+this is third line 
+this is fourth line 
+this text is written in the append mode // this text was written by the program , it did not erased the previous content or the previous file it just wrote at the last index , where the cursor was placed //
