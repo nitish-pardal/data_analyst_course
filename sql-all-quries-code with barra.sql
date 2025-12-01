@@ -1,13 +1,20 @@
+SELECT * FROM  persons
+
+
+--alter the table persons and add a column email to it  
+/*ALTER TABLE persons
+ADD emails VARCHAR(50) NOT NULL
+*/
 --create a new table called persons with column id,person_name,birth_date and phone
 
-create table persons (
+/* create table persons (
 	id INT  NOT NULL ,
 	person_name CHAR (50) NOT NULL,
 	birth_date DATE,
 	phone VARCHAR (15) NOT NULL ,	
 	CONSTRAINT pk_persons PRIMARY KEY(id)
 )
-
+*/
 
 --selecting a static value with the colums
 
