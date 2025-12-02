@@ -1,5 +1,20 @@
-SELECT * FROM  persons
 
+-- Inserting new values into customer table using INSERT INT
+/* INSERT INTO customers 
+	(id, first_name, country, score)
+VALUES(6,'Anna','USA', NULL),
+	  (7,'Sam',NULL,100)
+*/
+
+--SELECT * FROM customers
+--SELECT * FROM  persons (This table is deleted from the database
+
+-- Delete the table persons from your database 
+--DROP TABLE persons
+
+-- delete the column phone from the persons table 
+--ALTER TABLE persons
+--DROP COLUMN phone
 
 --alter the table persons and add a column email to it  
 /*ALTER TABLE persons
