@@ -4,7 +4,8 @@ SELECT * FROM persons
 /*
 --first SELECT the columns as the colums in the persons table
 -- Then INSERT it into the table
-INSERT INTO persons
+INSERT INTO persons (id,person_name,birth_date,phone)
+-- you can always leave out the columns names if you define the insert values according to the table defintion
 SELECT 
 id,first_name,NULL,'unknown'
 FROM customers
