@@ -1,6 +1,35 @@
 
+SELECT * FROM persons
+--INSERT using SELECT (INSERT  from the customer table to the person table)--
+/*
+--first SELECT the columns as the colums in the persons table
+-- Then INSERT it into the table
+INSERT INTO persons
+SELECT 
+id,first_name,NULL,'unknown'
+FROM customers
+*/
+
+
+/* created the table again for furure use and demonstrations 
+
+create table persons (
+	id INT  NOT NULL ,
+	person_name CHAR (50) NOT NULL,
+	birth_date DATE,
+	phone VARCHAR (15) NOT NULL ,	
+	CONSTRAINT pk_persons PRIMARY KEY(id)
+*/
+
+--INSERT INTO customers (id,first_name)
+--VALUES (8,'Manny')
+ 
+--INSERT INTO customers (id,first_name,score)
+--VALUES (9,'USA',900)
+
+--SELECT * FROM customers;
 -- Inserting new values into customer table using INSERT INT
-/* INSERT INTO customers 
+ /*INSERT INTO mydatabase.customers 
 	(id, first_name, country, score)
 VALUES(6,'Anna','USA', NULL),
 	  (7,'Sam',NULL,100)
