@@ -1,4 +1,16 @@
 
+SELECT * FROM customers
+
+INSERT INTO persons (id,person_name,birth_date,phone) (
+	SELECT 
+	id,
+	first_name,Null,'unknown'
+	From customers
+
+)
+
+SELECT * FROM persons
+
 --use MyDatabase;
 -- this will point to the name of the database instead of whatever datbase you are using  .
 
