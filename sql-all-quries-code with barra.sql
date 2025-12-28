@@ -1,5 +1,8 @@
 
-SELECT * FROM persons
+--use MyDatabase;
+-- this will point to the name of the database instead of whatever datbase you are using  .
+
+--SELECT * FROM persons
 --INSERT using SELECT (INSERT  from the customer table to the person table)--
 /*
 --first SELECT the columns as the colums in the persons table
