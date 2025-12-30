@@ -1,6 +1,11 @@
+-- update the score of the customer with id 6 to 0.
+UPDATE customers
+SET score =0
+WHERE id = 6
+
 
 SELECT * FROM customers
-
+/*
 INSERT INTO persons (id,person_name,birth_date,phone) (
 	SELECT 
 	id,
@@ -8,7 +13,7 @@ INSERT INTO persons (id,person_name,birth_date,phone) (
 	From customers
 
 )
-
+*/
 SELECT * FROM persons
 
 --use MyDatabase;
