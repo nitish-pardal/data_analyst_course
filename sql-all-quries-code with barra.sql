@@ -4,6 +4,15 @@ SET score =0
 WHERE id = 6
 
 
+-- UPDATES THE columns OF THE CUSTOMER WHOSE ID IS 6 .
+UPDATE customers
+SET first_name = 'ANNA',
+	country = 'USA',
+	score = 600
+WHERE id = 6
+
+
+
 SELECT * FROM customers
 /*
 INSERT INTO persons (id,person_name,birth_date,phone) (
