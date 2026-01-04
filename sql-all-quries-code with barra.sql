@@ -1,3 +1,13 @@
+-- change the	score of the customer with id 10 to 0 and update the country to UK .
+
+UPDATE customers 
+set score = 0, country = 'UK'
+WHERE id = 10
+
+SELECT * FROM customers
+WHERE id = 10
+
+
 -- update the score of the customer with id 6 to 0.
 UPDATE customers
 SET score =0
