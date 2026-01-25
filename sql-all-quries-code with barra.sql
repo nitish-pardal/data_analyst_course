@@ -1,3 +1,32 @@
+
+-- practice session 25-01-2026
+create table customers2 (
+	id int not null ,
+	first_name varchar(20) ,
+	phone_number varchar(10),
+	country char(20) ,
+	score integer 
+)
+
+insert into customers2 (id,first_name,phone_number,country,score)
+	SELECT id,first_name,'UNKNOWN',country,score
+	FROM customers
+
+
+UPDATE customers2 
+SET phone_number  = NULL 
+where id  = 10 and first_name =  'sahra'
+
+select * from customers2
+
+select first_name,country,sum(score) as total_score
+from customers
+group by first_name,country
+
+
+insert into customers
+values (11,'ANNA','Germany',600)
+
 -- change the	score of the customer with id 10 to 0 and update the country to UK .
 
 UPDATE customers 
@@ -19,7 +48,7 @@ UPDATE customers
 SET first_name = 'ANNA',
 	country = 'USA',
 	score = 600
-WHERE id = 6
+WHERE id = 6    -- always use where with the UPDATE clause other wise it will update all the other data  
 
 
 
