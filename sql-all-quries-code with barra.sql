@@ -1,5 +1,22 @@
 
+
+
+
+
 -- practice session 25-01-2026
+
+-- update all customers with null score by setting their score to 0 
+UPDATE customers
+SET score = 0
+WHERE score IS NULL
+
+SELECT * FROM customers
+
+-- Update all the customers where the country is null to unknown 
+UPDATE customers 
+SET country = 'UNKNOWN'
+where country is NULL 
+
 create table customers2 (
 	id int not null ,
 	first_name varchar(20) ,
