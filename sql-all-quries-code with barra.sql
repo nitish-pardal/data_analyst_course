@@ -1,9 +1,119 @@
 
 
+-- PRACTICE SESSION 26-1-2026
+--Find all the customers whose first name has r in the 3rd postion :
+SELECT *
+FROM customers
+WHERE first_name LIKE '__r%'
 
+--Find all customers whose first name contains an r:
+SELECT *
+FROM customers
+WHERE first_name LIKE '%r%'
 
+--Find all customers whose first name ends with n 
+SELECT * 
+FROM customers
+WHERE first_name LIKE '%n'
+
+--Find all customers whose first name starts with M :
+SELECT * 
+FROM customers
+WHERE first_name LIKE 'M%'
+
+--Retrieve all teh customers who are not from either Germany or USA :
+SELECT * 
+FROM customers
+WHERE country NOT IN ('UK','Germany')
+
+--Retrieve all the customers who are from either Germay or USA :
+SELECT * 
+FROM customers
+WHERE country IN ('USA','Germany')
+
+--Retrieve all the customers whose score falls between 100 and 500
+SELECT * 
+FROM customers
+WHERE SCORE BETWEEN 100 AND 500
+
+-- ANOTHER WAY TO WRITE THE ABOVE QUERY IS  :
+SELECT * 
+FROM customers
+WHERE score >=100 AND score <=500
 
 -- practice session 25-01-2026
+--Retrieve all the customers who have the score not less than 500 .
+SELECT * 
+FROM customers
+WHERE NOT SCORE < 500 -- SPECIAL NOT OPERATOR(LOGICAL OPERATOR) THAT REVERSES THE GIVEN CONDITION 
+-- THE ABOVE GIVEN QUERY CAN ALSO BE WRITTEN AS  :
+
+SELECT *
+FROM customers
+WHERE score >= 500 --(NOT LESS THAN 500)
+
+--Retrieve all the customers who are either from usa or have a score > 500
+SELECT * 
+FROM customers
+WHERE country = 'USA' OR 
+	  score > 500
+
+--Retrieve all the customers who are from USA and have a score > 500
+SELECT * 
+FROM customers
+WHERE country = 'USA' AND 
+	  score > 500
+
+--Retrieve all customers with a score <= 500 
+SELECT * 
+FROM customers
+WHERE  score <= 500
+ORDER BY id DESC
+
+--Retrieve all customer with a score < than 500
+SELECT *
+FROM customers
+WHERE score<500
+
+-- Retrieve all the customers with a score of 500 or more :
+SELECT *
+FROM customers
+WHERE score >= 500
+
+
+--Retrieve all the customers with a score > 500
+SELECT *
+FROM customers
+WHERE score >500
+
+--Retrieve all the customers who are not from Germany :
+
+SELECT * 
+FROM customers
+WHERE country != 'Germany'
+
+--Retrieve all customers from Germany :
+
+SELECT  * 
+FROM customers
+WHERE country ='Germany'
+
+
+-- Delete all data from table persons
+DELETE FROM persons
+--you can also use TRUNCATE in place of DELETE which will be faster .
+TRUNCATE TABLE persons
+--Delete all customers with an id > 5
+DELETE FROM customers
+WHERE id > 5
+
+
+SELECT * FROM customers
+
+
+UPDATE customers
+SET country = 'USA'
+WHERE country ='MAX'
 
 -- update all customers with null score by setting their score to 0 
 UPDATE customers
