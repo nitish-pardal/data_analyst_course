@@ -1,4 +1,24 @@
 
+--PRACTCE SESSION 29-1-2026
+--Get all the customers along with their orders , but only customers who have placed an order  :
+SELECT * -- NOT A GOOD PRACTICE TO KEEP THE * BECAUSE IN THE RESULT THERE WILL BE MULTIPLE REPEATED COLUMS 
+FROM customers -- SO SELECT A FEW RELVENT COLUMNS
+INNER JOIN orders
+ON customers.id = orders.customer_id
+
+-- ABOVE QUERY CAN BE WRITTES AS :
+SELECT  C.id,C.first_name,C.country,C.score,O.order_id,O.order_date,O.sales
+FROM customers AS C
+INNER JOIN orders AS O
+ON C.id = O.customer_id
+--Retrieve all data from customers and orders in 2 different results  :
+SELECT *
+FROM customers;
+
+SELECT * 
+FROM orders;
+
+
 
 -- PRACTICE SESSION 26-1-2026
 --Find all the customers whose first name has r in the 3rd postion :
