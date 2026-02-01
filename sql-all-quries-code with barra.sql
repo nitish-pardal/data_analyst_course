@@ -1,4 +1,10 @@
 --practice session 1-02-2026
+--get all the customers and all the orders if there is not match  
+SELECT * 
+FROM customers AS C 
+FULL JOIN orders AS O
+ON C.id = O.customer_id 
+
 --GET ALL THE CUSTOMERS ALONG WITH THEIR ORDERS AND INCLUDING ORDERS WITHOUT MATCHING CUSTOMERS.
 -- SAME TASK USING THE LEFT JOIN 
 SELECT 
