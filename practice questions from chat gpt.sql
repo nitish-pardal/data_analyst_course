@@ -39,20 +39,50 @@ group by job_title
 --🟣 INNER JOIN
 
 --Show employee name and department name
+SELECT E.emp_name, D.dept_name
+FROM employees AS E
+INNER JOIN departments AS D
+ON E.dept_id = D.dept_id
 
 --Show employees working in the IT department
+SELECT E.emp_name, D.dept_name
+FROM employees AS E
+INNER JOIN departments AS D
+ON E.dept_id = D.dept_id
+WHERE d.dept_name = 'IT'
+
 
 --Show department name along with employee salaries
 
+SELECT E.salary, D.dept_name
+FROM employees AS E
+INNER JOIN departments AS D
+ON E.dept_id = D.dept_id
+
+
 --🟠 LEFT JOIN (IMPORTANT 🔥)
+select * from employees ;
+select * from departments;
 
 --Show all employees, even if they don’t belong to a department
+SELECT * 
+FROM employees as E
+LEFT JOIN departments AS D 
+ON E.dept_id = D.dept_id
 
 --Find employees who are not assigned to any department
+SELECT * 
+FROM employees as E
+LEFT JOIN departments AS D 
+ON E.dept_id = D.dept_id
+WHERE  e.dept_id IS NULL --this works 
+WHERE d.dept_id is NULL -- this is better because if there is any unmathed row int the case of left join the table created in the left join 
+--will have nulls in the rows for which it has no match in the left  
 
 --🔴 Interview-Style Thinking
 
 --Find the total salary per department
+
 
 --Show departments with more than 1 employee
 
