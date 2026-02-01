@@ -1,3 +1,27 @@
+--practice session 1-02-2026
+--GET ALL THE CUSTOMERS ALONG WITH THEIR ORDERS AND INCLUDING ORDERS WITHOUT MATCHING CUSTOMERS.
+-- SAME TASK USING THE LEFT JOIN 
+SELECT 
+	C.id,
+	C.first_name,
+	O.order_id,
+	O.sales
+FROM orders AS O 
+LEFT JOIN customers AS C
+ON O.customer_id = C.id
+
+--GET ALL THE CUSTOMERS ALONG WITH THEIR ORDERS AND INCLUDING ORDERS WITHOUT MATCHING CUSTOMERS
+SELECT * 
+FROM customers AS C
+RIGHT JOIN orders AS O 
+ON C.id = O.customer_id
+
+SELECT * FROM customers;
+SELECT * FROM orders;
+-- get all the customers along with order including those without orders :
+SELECT * FROM customers AS C
+LEFT JOIN orders AS O 
+ON C.id = O .customer_id
 
 --PRACTCE SESSION 29-1-2026
 --Get all the customers along with their orders , but only customers who have placed an order  :
