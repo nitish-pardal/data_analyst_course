@@ -1,3 +1,101 @@
+--practice session 07-02-2026
+--using salesdb , Reterieve a list of all the orders, along with the related customers, products and employee details	: 
+--for each display 
+--orderid
+--customer name 
+--product name 
+--sales amount 
+--product price
+--salesperso's name  
+
+
+USE SalesDB
+select O.OrderID,C.FirstName AS CUSTOMER_NAME,C.LastName AS CUSTOMER_NAME,P.Product,P.Price,O.Sales,E.FirstName AS EMPLOYEE_NAME,E.LastName
+from Sales.Orders AS O
+left join Sales.Customers as c
+ON C.CustomerID =O.CustomerID
+LEFT JOIN SALES.Products AS P 
+ON O.ProductID = P.ProductID
+LEFT JOIN Sales.Employees AS E
+ON O .SalesPersonID =E.EmployeeID
+
+SELECT * FROM Sales.Orders
+select * from sales.Customers
+SELECT * FROM Sales.Products
+SELECT * FROM Sales.Employees
+
+-- practive session 05-02-2026
+-- GERENERATE ALL POSSIBLE COMBINATIONS OF CUSTOMERS AND ORDERS 
+
+USE MyDatabase -- THIS IS SAME AS SELECTING THE DATABASE .
+
+SELECT * 
+FROM customers 
+CROSS JOIN orders
+
+-- GET ALL THE CUSTOMERS ALONG WITH THEIR OREDERS , 
+--BUT ONLY FOR CUSTOMERS WHO HAVE PLACED AN ORDER (WITHOUT USING INNER JOIN  )
+
+SELECT * FROM customers
+SELECT * FROM orders
+
+SELECT * 
+FROM customers AS C
+FULL JOIN orders AS O
+ON C.id = O.customer_id
+WHERE C.id = O.customer_id
+--WHERE C.id IS NOT NULL AND O.customer_id IS NOT NULL
+
+-- GET ALL THE CUSTOMERS ALONG WITH THEIR OREDERS , 
+--BUT ONLY FOR CUSTOMERS WHO HAVE PLACED AN ORDER (WITHOUT USING INNER JOIN  )
+
+SELECT * 
+FROM customers AS C
+LEFT JOIN orders AS O
+ON C.id = O.customer_id
+WHERE O.customer_id IS NOT NULL
+
+-- SAME TASK USING THE LEFT JOIN -- 
+-- FIND CUSTOMERS WITHOUT ORDERS AND ORDERS WITHOUT CUSTOMERS
+
+SELECT *
+FROM customers AS C 
+INNER JOIN orders AS O 
+ON C.id = O.customer_id
+
+SELECT * 
+FROM customers AS C
+FULL JOIN orders AS O 
+ON C.id = O.customer_id
+WHERE C.id IS NULL 
+OR O.customer_id IS NULL
+
+--GET ALL ORDERS WITHOUT MATCHING CUSTOMERS (USING RIGHT JOIN )
+SELECT * 
+FROM customers AS C
+RIGHT JOIN orders AS O
+ON C.id = O.customer_id
+WHERE  C.id IS NULL
+
+--GET ALL ORDERS WITHOUT MATCHING CUSTOMERS (USING LEFT JOIN )
+
+SELECT * 
+FROM orders AS O
+LEFT JOIN customers AS C
+ON C.id = O.customer_id
+WHERE  C.id IS NULL
+--get all customErs who havent placed any order 
+
+SELECT * FROM customers
+SELECT * FROM orders
+
+SELECT * 
+FROM customers C
+LEFT JOIN orders AS O
+ON C.ID =O.customer_id
+WHERE O.customer_id IS NULL
+
+
 --practice session 1-02-2026
 --get all the customers and all the orders if there is not match  
 SELECT * 
