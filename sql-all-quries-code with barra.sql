@@ -1,3 +1,22 @@
+-- practive session 08-02-2026
+-- combine the data from employees and customers into one table  
+
+SELECT CustomerID AS ID,FirstName AS FIRST_NAME,LastName AS LAST_NAME FROM Sales.Customers
+UNION
+SELECT EmployeeID,FirstName,LastName FROM Sales.Employees
+
+--union the two tables : customers and employees from sales 
+
+SELECT 
+	FirstName,LastName
+FROM Sales.Customers
+
+UNION
+
+SELECT 
+	FirstName,LastName
+FROM Sales.Employees
+
 --practice session 07-02-2026
 --using salesdb , Reterieve a list of all the orders, along with the related customers, products and employee details	: 
 --for each display 
