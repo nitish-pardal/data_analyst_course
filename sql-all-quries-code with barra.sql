@@ -1,3 +1,26 @@
+-- practive session 12-02-2026
+--Orders data is stored in seperate tables	(orders and ordersArchive).
+--combine all the data into one single report without duplicates 
+
+SELECT * FROM Sales.Orders
+UNION
+SELECT * FROM Sales.OrdersArchive
+
+--find the employees who are also customers
+SELECT EmployeeID,FirstName,LastName FROM Sales.Employees 
+INTERSECT
+SELECT CustomerID AS ID,FirstName AS FIRST_NAME,LastName AS LAST_NAME FROM Sales.Customers
+--find the employees who are not the customers at the same time 
+SELECT EmployeeID,FirstName,LastName FROM Sales.Employees 
+EXCEPT
+SELECT CustomerID AS ID,FirstName AS FIRST_NAME,LastName AS LAST_NAME FROM Sales.Customers
+
+--combine the data from the employees and custoemers into one table including the duplicates 
+
+SELECT CustomerID AS ID,FirstName AS FIRST_NAME,LastName AS LAST_NAME FROM Sales.Customers
+UNION ALL
+SELECT EmployeeID,FirstName,LastName FROM Sales.Employees
+
 -- practive session 08-02-2026
 -- combine the data from employees and customers into one table  
 
