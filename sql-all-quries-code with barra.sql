@@ -1,3 +1,6 @@
+
+
+
 -- practive session 12-02-2026
 --Orders data is stored in seperate tables	(orders and ordersArchive).
 --combine all the data into one single report without duplicates 
