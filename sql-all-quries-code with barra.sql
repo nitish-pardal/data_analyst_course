@@ -1,7 +1,8 @@
+-- Active: 1742625621611@@localhost@3306@mydatabase
 
+select * from customers
 
-
--- practive session 12-02-2026
+-- practice session 12-02-2026
 --Orders data is stored in seperate tables	(orders and ordersArchive).
 --combine all the data into one single report without duplicates 
 
