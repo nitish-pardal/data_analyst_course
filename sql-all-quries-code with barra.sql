@@ -1,6 +1,24 @@
--- Active: 1742625621611@@localhost@3306@mydatabase
 
 --PRACTICE SESSION 21-02-2026
+--calculte the length of each customers first name  :
+SELECT first_name,
+LEN(TRIM(first_name)) AS LEN_NAME
+FROM customers
+
+--use case for replace() : changing the extension of the file name from .txt to .csv
+SELECT 
+'filename.txt' AS OLD_FILE,
+REPLACE('filename.txt','.txt','.csv') AS NEW_FILE
+
+--Replace() practice using static value  :
+SELECT 
+'123-456-7890' AS PHONE_NO,
+REPLACE('123-456-7890','-','') AS CLEANED_PHONE_NO
+
+--you can also do the below finding the customers with leading or trailing space with len :
+SELECT first_name
+FROM customers
+WHERE LEN(first_name) != LEN(TRIM(first_name))
 
 --find customers whose first name contains leading and trailing spaces 
 SELECT first_name
