@@ -1,5 +1,25 @@
 -- Active: 1742625621611@@localhost@3306@mydatabase
 
+--PRACTICE SESSION 21-02-2026
+
+--find customers whose first name contains leading and trailing spaces 
+SELECT first_name
+FROM customers
+WHERE first_name != TRIM(first_name) -- THIS MEANS THAT IF THE FIRST NAME IS NOT EQUAL TO ITSELF AFTER TRIMMING THAT MEANS IT HAD SOME SPACE.
+--convert the first name into upper case :
+
+SELECT id,first_name,country,score,UPPER(first_name) AS UPP_NAME
+FROM customers
+
+--conver the first name to lower case :
+SELECT id,first_name,score,LOWER(first_name) AS LOW_NAME 
+FROM customers
+
+--concatenate first name and country in one column :
+SELECT id,CONCAT(first_name,' ' ,country)AS 'FIRST_NAME & COUNTRY ',score
+FROM customers
+
+
 select * from customers
 
 -- practice session 12-02-2026
