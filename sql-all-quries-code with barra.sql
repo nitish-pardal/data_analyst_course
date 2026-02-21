@@ -1,5 +1,39 @@
 
+
+--PRACTICE SESSION 22-1-2026
+--using the given date in table , hardcoded and GETDATE() 
+SELECT 
+    OrderID
+	OrderDate,-- GIVEN IN TABLE
+	CreationTime, --GIVEN IN TABLE
+	'2026-02-22' AS HARDCODED,-- HARDCODED
+	GETDATE() AS CUR_DATE -- CURRENT_dATE
+FROM Sales.Orders
+
+	
 --PRACTICE SESSION 21-02-2026
+--use round function and round a number :
+
+SELECT
+3.516,
+ROUND(3.516,2) AS ROUND_2,
+ROUND(3.516,1) AS ROUND_1,
+ROUND(3.516,0) AS ROUND_0
+--retrieve the list of customers first name removing the first character :
+SELECT 
+	first_name,
+	SUBSTRING(TRIM(first_name),2,LEN(first_name))
+FROM customers
+
+--retrieve the last 2 characters of each first_name 
+SELECT 
+	first_name,RIGHT(TRIM(first_name),2) last_2_char
+FROM customers
+
+--retrieve the first 2 characters of each first_name
+SELECT first_name,LEFT(TRIM(first_name),2) FRST_2_CHAR
+FROM customers
+
 --calculte the length of each customers first name  :
 SELECT first_name,
 LEN(TRIM(first_name)) AS LEN_NAME
