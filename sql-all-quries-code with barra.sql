@@ -7,7 +7,7 @@ SELECT
 	CreationTime,
 	DATEPART(MONTH,CreationTime) AS MONTH ,
 	DATEPART(MINUTE,CreationTime) AS MINUTES_INSE,
-
+	DATEPART(HOUR,CreationTime) AS HOUR_INSER
 FROM Sales.Orders
 --using date functions DAY ,MONTH ,YEAR 
 SELECT 
