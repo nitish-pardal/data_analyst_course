@@ -1,4 +1,22 @@
+--practice session 05-03-2026
 
+--using datepart() 
+
+SELECT 
+	OrderID,
+	CreationTime,
+	DATEPART(MONTH,CreationTime) AS MONTH ,
+	DATEPART(MINUTE,CreationTime) AS MINUTES_INSE,
+
+FROM Sales.Orders
+--using date functions DAY ,MONTH ,YEAR 
+SELECT 
+	OrderID,
+	CreationTime,
+	DAY(CreationTime) as DAY , --DAY 
+	MONTH(CreationTime) AS MONTH, -- MONTH
+	YEAR(CreationTime) AS YEAR -- YEAR
+FROM Sales.Orders
 
 --PRACTICE SESSION 22-1-2026
 --using the given date in table , hardcoded and GETDATE() 
