@@ -1,3 +1,14 @@
+--PRACTICE SESSION 07-03-2026
+SELECT FirstName,
+	REPLACE(FirstName,'e','o') AS MODIFIED_NAME
+FROM Sales.Customers
+
+SELECT * FROM Sales.Customers
+
+SELECT 
+	OrderID,DATEPART(HOUR,GETDATE()) AS HOUR,GETDATE(),CreationTime
+FROM Sales.Orders
+	
 --practice session 05-03-2026
 
 --using datepart() 
