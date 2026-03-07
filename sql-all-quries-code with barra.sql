@@ -1,16 +1,37 @@
 --PRACTICE SESSION 07-03-2026
-SELECT FirstName,
-	REPLACE(FirstName,'e','o') AS MODIFIED_NAME
-FROM Sales.Customers
+--ORDERS GROUPED BY CRETION TIME( GRANULARITY OF THE COLUMN IS VERY HIGH TO MUCH INFORMATION )
+SELECT 
+	CreationTime,
+	COUNT(*)
+FROM Sales.Orders
+GROUP BY CreationTime
 
-SELECT * FROM Sales.Customers
+--TO GROUP THE ORDERS BY CREATION TIME /WE CAN USE THE DATETRUNC FUNCTION AS:
+SELECT 
+	DATETRUNC(MONTH,CreationTime), --this is actually just creation time grouped by month
+	COUNT(*)
+FROM Sales.Orders
+GROUP BY DATETRUNC(MONTH,CreationTime)
+
+-- WE CAN ALSO DO IT AS  :
+SELECT 
+	MONTH(CreationTime),
+	COUNT (*)
+FROM Sales.Orders
+GROUP BY MONTH(CreationTime)
+--USING DAATETRUNC FUNCTION:
 
 SELECT 
-	OrderID,DATEPART(HOUR,GETDATE()) AS HOUR,GETDATE(),CreationTime
+	OrderID,
+	CreationTime,
+	DATETRUNC(MINUTE,CreationTime) AS MIN_DT,
+	DATETRUNC(HOUR,CreationTime) AS HOUR_DT,
+	DATETRUNC(DAY,CreationTime) AS DAY_DT,
+	DATETRUNC(MONTH,CreationTime) AS MONTH_DT,
+	DATETRUNC(YEAR,CreationTime) AS YEAR_DT
 FROM Sales.Orders
-	
---USING DATE NAME FUNCTION :
 
+--USING DATE NAME FUNCTION :
 SELECT OrderID,
 	CreationTime,
 	DATENAME(WEEKDAY,CreationTime) AS DAY_OF_WEEK,
@@ -23,6 +44,20 @@ SELECT OrderID,
 	DATENAME(YEAR,CreationTime) AS YEAR_DN,-- the output of this is stored as string
 	DATEPART(YEAR,CreationTime) AS YEAR_DP -- the output of this is stored as integer
 FROM Sales.Orders
+
+SELECT FirstName,
+	REPLACE(FirstName,'e','o') AS MODIFIED_NAME
+FROM Sales.Customers
+
+SELECT * FROM Sales.Customers
+
+SELECT 
+	OrderID,DATEPART(HOUR,GETDATE()) AS HOUR,GETDATE(),CreationTime
+FROM Sales.Orders
+	
+
+
+
 
 --practice session 05-03-2026
 
