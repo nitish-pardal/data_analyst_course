@@ -9,6 +9,21 @@ SELECT
 	OrderID,DATEPART(HOUR,GETDATE()) AS HOUR,GETDATE(),CreationTime
 FROM Sales.Orders
 	
+--USING DATE NAME FUNCTION :
+
+SELECT OrderID,
+	CreationTime,
+	DATENAME(WEEKDAY,CreationTime) AS DAY_OF_WEEK,
+	DATENAME(YEAR,CreationTime) AS YEAR,
+	DATENAME(MONTH,CreationTime) AS MONTH,
+	DATENAME(HOUR,CreationTime) AS HOUR ,
+	DATENAME(DAY,CreationTime) AS DAY ,-- the output is stored as string
+	DATEPART(DAY,CreationTime) AS DAY_DP, -- the output is stored as integer
+	--SAME WITH THE YEAR 
+	DATENAME(YEAR,CreationTime) AS YEAR_DN,-- the output of this is stored as string
+	DATEPART(YEAR,CreationTime) AS YEAR_DP -- the output of this is stored as integer
+FROM Sales.Orders
+
 --practice session 05-03-2026
 
 --using datepart() 
