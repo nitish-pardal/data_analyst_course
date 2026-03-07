@@ -1,4 +1,22 @@
 --PRACTICE SESSION 07-03-2026
+
+--HOW MANY ORDERS WERE PLACE EAH MONTH:
+
+SELECT 
+	DATENAME(MONTH,OrderDate),
+	COUNT (*)
+FROM SaleS.Orders
+GROUP BY DATENAME(MONTH,OrderDate)
+
+select datename(month,(month(OrderDate)))
+from Sales.Orders
+-- HOW MANY ORDERS WERE PLACED EACH YEAR ;
+SELECT 
+	YEAR(OrderDate),
+	COUNT(*)
+FROM Sales.Orders
+GROUP BY YEAR(OrderDate)
+
 --USING EOMONTH():
 
 SELECT 
