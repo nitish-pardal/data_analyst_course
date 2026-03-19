@@ -1,13 +1,98 @@
-this is the first line written from the code 
-this is the second line written from the code 
-this is third line 
-this is fourth line 
+TableA	TableB
+
+0		0
+
+0		1		
+
+1		1
+
+1		2
+
+2		3
+
+2		3
+
+3		3
+
+NULL	4
+
+NULL	NULL
+ 
+ 
+ SELECT B.*,A.*
+ FROM B AS B 
+ RIGHT OUTER JOIN A AS A
+ ON A.ID =B.ID 0
+ 
+ right outer join : 
+ 
+resut :
+  
+	0-0
+	0-0
+	1-1
+	1-1
+	1-1
+	1-1
+	2-2
+	2-2
+	3-3
+	3-3
+	3-3
+	4-null
+	null-null
+	
+	
+
+client_kyc(client_id, kyc_expiry_date)
+Write a query to fetch clients whose KYC expiry date is within the next 30 days.
+
+SELECT *
+FROM client_kyc
+WHERE kyc_expiry_date BETWEEN CURRENT_DATE 
+AND CURRENT_DATE + INTERVAL 30 DAY;
+
+SELECT * 
+FROM client_kyc
+WHERE kyc_expiry_date BETWEEN GETDATE() AND DATEADD(DAY,30,GETDATE());
+
+loan_master (loan_id,disbursed_amount)
+calculate running total of loan amounts.
+
+loan_id,disbursed_amount
 
 
-https://drive.google.com/file/d/1a0b-Qe4-ih-JBZ32ZAyiBxIE8yKQKY-l/view?usp=sharing
+1		100	
+2		200
+3		300
 
-pbix:
-https://drive.google.com/file/d/1ydA3G4wQxTmJTEifrSH6dmw_qKMitkAc/view?usp=sharing
+SELECT 
+loan_id,
+disbursed_amount,
+SUM(disbursed_amount) OVER (ORDER BY loan_id)AS RUN_TOTAL
+FROM loan_master
 
+Load a CSV file , display first 5 rows and Remove duplicate rows from a DataFrame.
 
-CONCAT(Name,'(',LEFT(Occupation,1),')');
+ import pandas as pd 
+ 
+ df= pd.read_csv("files example.csv")
+ 
+ print(df.head())
+ 
+ df=df.drop_duplicates()
+ 
+ df['amount']=df['amount'].fillna(0)  
+ 
+ df2 = df[df['amount']>50000]
+ 
+ 
+ print (df)
+ 
+ total sales = CALCULATE (sum(sales[amount]))
+ 
+ total sales =
+ 
+ CALCULATE(SUM(SALES))
+ 
+ 
