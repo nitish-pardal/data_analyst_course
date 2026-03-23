@@ -1,21 +1,50 @@
+--practice session 24-03
+
+
+
+
+-- ranks customers based on their total sales  :
+-- FIND THE TOTAL NUMBER OF ORDERS OF EACH PRODUCT :
+
+SELECT 
+	ProductID,
+	OrderStatus,
+	COUNT(*) OVER (PARTITION BY PRODUCTID)
+FROM Sales.Orders
+
+
+SELECT 
+	CustomerID,
+	rank() OVER(ORDER BY SUM(Sales))
+FROM Sales.Orders
+group by CustomerID
+
+
 -- PRACITCE SESSION 20-03-2026
 --WORKING WITH THE FRAMES 
 
 SELECT 
 
-	OrderID,OrderStatus,Sales,OrderDate,SUM (Sales) OVER (PARTITION BY ORDERSTATUS ORDER BY ORDERDATE ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW )
+	OrderID,OrderStatus,Sales,OrderDate,
+	SUM (Sales) OVER (PARTITION BY ORDERSTATUS ORDER BY ORDERDATE ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW )
 FROM Sales.Orders
 
 
 SELECT 
-
-	OrderID,OrderStatus,Sales,OrderDate,SUM (Sales) OVER (PARTITION BY ORDERSTATUS ORDER BY ORDERDATE ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING )
+	OrderID,OrderStatus,Sales,OrderDate,
+	SUM (Sales) OVER (PARTITION BY ORDERSTATUS ORDER BY ORDERDATE ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING )
 FROM Sales.Orders
 
 SELECT * FROM Sales.Orders
 
 --practice session 19-03-2026
-
+--Write a query to fetch clients whose KYC expiry date is within the next 30 days.
+SELECT * FROM Sales.Orders
+SELECT
+	OrderID,ProductID,DATETRUNC(MONTH,CreationTime),DATEADD(DAY,30,CreationTime)
+FROM Sales.Orders
+WHERE CreationTime BETWEEN DATETRUNC(MONTH,CreationTime) AND DATEADD(DAY,30,CreationTime)
+	
 --ADDING AND SUBTRACTING DAYS,MONTHS AND YEARS FROM THE GIVEN DATE 
 select 
 DATEADD(DAY,30,CreationTime) AS 'DATE+30DAYS',
