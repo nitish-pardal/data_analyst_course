@@ -1,3 +1,21 @@
+--using format :
+
+select 
+OrderDate,
+CreationTime,
+FORMAT(CreationTime,'dd') dd,
+Format(CreationTime,'ddd') as ddd,
+Format(CreationTime,'dddd') as dddd,
+format(CreationTime,'mm') mm, --minutes,
+--months
+FORMAT(CreationTime,'MM','ja-jP')MM,
+FORMAT(CreationTime,'MMM')MMM 
+from Sales.Orders
+
+
+
+
+
 --practice session 25-05
 --SHOW ALL THE ORDERS THAT WAS PLACED DURING THE MONTH OF FEBRUARY
 
