@@ -1,4 +1,12 @@
+
 --using format :
+SELECT 
+CreationTime,
+FORMAT(CreationTime,'DD/MM/YYYY'),
+FORMAT(CreationTime, 'MM-YYYY-DD'),
+FORMAT(CreationTime,'YYYY-MM-DD')
+FROM Sales.Orders
+
 
 select 
 OrderDate,
