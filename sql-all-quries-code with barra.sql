@@ -1,10 +1,45 @@
+-- CONVERT 
+
+SELECT 
+	CONVERT(INT,'123') AS [stirng to int CONVERT],
+	CONVERT(DATE,'2025-08-08') AS [string to date CONVERT],
+	CONVERT(DATE,CreationTime) AS [CREATION TIME AS DATE],
+	CONVERT(TIME,CreationTime) AS [CREATION TIME AS TIME],
+	CreationTime,
+-- YOU CAN USE FORMATTING INSIDE THE CONVERT AS WELL 
+	CONVERT(VARCHAR,CreationTime,32) AS [USA TIME FORMAT STYLE: 32]
+FROM Sales.Orders
+
+--using format do the date aggregation on months 
+-- THIS IS SAME AS USING THE DATEPART 
+SELECT 
+	FORMAT(OrderDate,'MMM yy'),
+	COUNT(*)
+FROM Sales.Orders
+GROUP BY FORMAT(OrderDate,'MMM yy')
+
+--SHOW CREATION TIME USING THE FOLLOWING FORMAT
+--DAY WED JAN Q1 2025 12:34:56 PM SHOW THIS AS A STRING 
+SELECT
+CreationTime,
+'DAY '+FORMAT(CreationTime,'ddd MMM')+ 
+' Q'+DATENAME(QUARTER,CreationTime)+' '+
+FORMAT(CreationTime,'yyyy hh:mm:ss tt')AS CUSTOM_FORMAT
+FROM Sales.Orders
+
 
 --using format :
 SELECT 
 CreationTime,
-FORMAT(CreationTime,'DD/MM/YYYY'),
-FORMAT(CreationTime, 'MM-YYYY-DD'),
-FORMAT(CreationTime,'YYYY-MM-DD')
+FORMAT(CreationTime,'dd/MM/yyyy') as format1,
+FORMAT(CreationTime, 'MM-yyyy-dd')as format2,
+FORMAT(CreationTime,'yyyy-MM-dd') format3,
+FORMAT(CreationTime,'ddd-MM-yyyy') format4,
+FORMAT(CreationTime, 'dd-MMM') format5,
+FORMAT(CreationTime, 'dd-MMM-yyyy') format6,
+FORMAT(CreationTime,'dddd-MM-yyyy') format7,
+FORMAT(CreationTime,'MMMM') AS MONTH_FROM_DATE,
+FORMAT(CreationTime, 'MM-dd-yyyy') AS USA_format
 FROM Sales.Orders
 
 
