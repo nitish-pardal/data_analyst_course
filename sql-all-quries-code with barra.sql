@@ -1,3 +1,15 @@
+
+-- display the full name of customer in a single field 
+--by merging their first and last name 
+--and add 10 bouns points to each customers score 
+SELECT 
+FirstName,
+LastName,
+FirstName+''+COALESCE(LastName,' ') AS FULL_NAME,
+Score,
+COALESCE(Score,0)+10
+FROM Sales.Customers
+
 --find the average score of the customers 
 SELECT 
 CustomerID,
