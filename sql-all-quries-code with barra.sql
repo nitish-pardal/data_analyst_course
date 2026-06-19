@@ -1,9 +1,13 @@
 --find the average score of the customers 
-SELECT AVG( COALESCE(SCORE,0)) AS AVERAGE_SCORE	-- WITH COALESCE
+SELECT 
+CustomerID,
+score,
+AVG(COALESCE(SCORE,0)) over() AS AVERAGE_SCORE	-- WITH COALESCE
 FROM Sales.Customers
 
 --WITHOUT COALESCE 
-SELECT AVG(SCORE)
+SELECT 
+CustomerID,score,AVG(SCORE) over() as average_score
 FROM Sales.Customers
 
 --
