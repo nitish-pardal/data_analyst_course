@@ -1,3 +1,19 @@
+--SORT THE CUSTOMERS FROM THE LOWEST TO THE HIGHEST SCORES WITH THE NULL APPEARING LAST 
+--1 ST WAY TO DO THIS -- USING THE LAZY METHOD
+SELECT 
+CustomerID,
+FirstName,
+Score
+FROM Sales.Customers
+ORDER BY COALESCE(Score,99999) ASC 
+--2ND WAY TO DO THIS  -- USING A FLAG LOGIC 
+SELECT 
+CustomerID,
+FirstName,
+Score
+FROM Sales.Customers
+ORDER BY CASE WHEN Score IS NULL THEN 1 ELSE 0 END ASC ,Score ASC
+
 
 -- display the full name of customer in a single field 
 --by merging their first and last name 
