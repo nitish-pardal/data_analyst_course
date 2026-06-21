@@ -1,3 +1,76 @@
+
+
+--COUNT HOW MANY TIMES EACH CUSTOMER HAS MADE AN ORDER WITH SALES > 30  
+
+SELECT 
+	CustomerID,
+	SUM(CASE 
+		WHEN Sales > 30 THEN 1
+		ELSE 0
+	END) AS [TOTAL_SALES>30],
+	COUNT(*) AS TOTAL_SALES
+FROM Sales.Orders
+GROUP BY CustomerID
+
+
+-- FIND THE AVEREAGE SCORE OF CUSTOMERS AND TREAT NULLS AS 0 
+-- AND ADDITIONALLY PROVIDE DETAILS SUCH AS CUSTOMERID AND LASTNAME  
+
+SELECT 
+CustomerID,
+LastName,
+AVG (COALESCE(SCORE,0)) OVER() AS [AVG WITH COALESCE], -- AVERAGE WITH COALESCE 
+AVG(CASE                                              -- AVERAGE WITH CASE  
+	WHEN SCORE IS NULL THEN 0
+	ELSE SCORE
+END) OVER() AS [AVG WITH CASE],
+AVG(Score) OVER() AS [AVG UNCLEANED]                  -- AVERAGE WITHOUT CLEANING 
+FROM Sales.Customers
+
+--RETRIEVE CUSTOMER DETAILS WITH ABBREVIATED COUNTRY CODE 
+SELECT DISTINCT 
+Country
+FROM Sales.Customers
+
+SELECT 
+CustomerID,
+FirstName,
+LastName,
+Country,
+	CASE
+		WHEN Country = 'Germany' then 'DE'
+		WHEN Country = 'USA' THEN 'US'
+		ELSE 'N/A'
+	END AS CountryCode
+FROM Sales.Customers
+-- WRITING THE ABOVE LOGIC WITH THE QUICK CASE FORMAT  
+
+SELECT 
+CustomerID,
+FirstName,
+LastName,
+Country,
+	CASE Country
+		WHEN 'Germany' then 'DE'
+		WHEN 'USA' THEN 'US'
+		ELSE 'N/A'
+	END AS CountryCode
+FROM Sales.Customers
+--retrieve employee details as gender displayed as full text
+SELECT 
+	EmployeeID,
+	FirstName,
+	LastName,
+	Gender,
+	CASE
+		WHEN Gender = 'M' THEN 'MALE'
+		WHEN Gender = 'F' THEN 'FEMALE'
+		ELSE 'NOT AVAILABLE'
+	END GENDER
+FROM Sales.Employees
+
+
+
 --CASE WHEN THEN ELSE END  
 --GENERATE A REPORT SHOWING THE TOTAL SALES FOR EACH CATEGORY:
 --HIGH: IF THE SALES IS GREATER THAN 50 
