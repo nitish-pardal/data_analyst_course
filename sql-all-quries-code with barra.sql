@@ -1,3 +1,21 @@
+--RANK THE CUSTOMERS BASED ON THEIR TOTAL SALES .
+SELECT 
+	CustomerID,
+	SUM(Sales) TOTAL_SALES,
+	RANK () OVER (ORDER BY SUM(SALES) DESC) RankCustomers --THE YOU CAN ADD THE WINDOW FUNCTIONS 
+FROM Sales.Orders 
+GROUP BY CustomerID --ADD GROUP BY FIRST
+
+
+--find the total sales for each order status ,
+--only for two productid 101 and 102 
+SELECT  
+	OrderStatus,
+	SUM(Sales) OVER(PARTITION BY ORDERSTATUS)
+FROM Sales.Orders
+WHERE ProductID IN (101,102)
+--GROUP BY OrderStatus
+
 --FRAME SHORT FORM AND FRAME FULL FORM  
 SELECT 
 	OrderID,
