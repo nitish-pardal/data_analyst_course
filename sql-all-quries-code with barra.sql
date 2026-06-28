@@ -1,4 +1,13 @@
 ------------------------------------------------------------------------------------------------------------
+--SHOW THE EMPLOYEES WITH THE HIGHEST SALARIES 
+SELECT * FROM (
+SELECT
+	EmployeeID,
+	Salary,
+	MAX(Salary) OVER() MAX_SALARY
+FROM Sales.Employees
+)T WHERE Salary = MAX_SALARY
+
 --FIND THE HIGHEST AND LOWEST SALES ACROSS ALL ORDERS
 --AND THE HIGHEST AND THE LOWEST SALES FOR EACH PRODUCT
 --ADDITIONALLY , PROVIDE DETAILS SUCH AS ORDERID AND ORDERDATE .
