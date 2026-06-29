@@ -1,4 +1,7 @@
 ------------------------------------------------------------------------------------------------------------
+--FIND THE DEVIATION OF EACH SALES 
+--FROM THE MINIMUM AND MAXIMUM SALES AMOUNT
+
 --SHOW THE EMPLOYEES WITH THE HIGHEST SALARIES 
 SELECT * FROM (
 SELECT
