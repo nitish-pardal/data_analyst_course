@@ -1,4 +1,15 @@
 ------------------------------------------------------------------------------------------------------------
+
+--CALCULATE THE MOVING AVERAGE OF SALES FOR EACH PRODUCT OVER TIME .
+
+SELECT 
+	ProductID,
+	OrderID,
+	OrderDate,
+	AVG(Sales) OVER (PARTITION BY PRODUCTID ORDER BY ORDERDATE) [MOVING AVERAGE]
+FROM Sales.Orders
+
+--RUNNING AND ROLLING CONCEPTS  ^
 --FIND THE DEVIATION OF EACH SALES 
 --FROM THE MINIMUM AND MAXIMUM SALES AMOUNT
 
