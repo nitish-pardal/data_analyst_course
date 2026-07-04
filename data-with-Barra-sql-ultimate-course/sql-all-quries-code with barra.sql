@@ -1,4 +1,18 @@
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
+SELECT 
+DATETRUNC(YEAR,GETDATE()), --FIRST DATE OF THE CURRENT MONTH
+DATEADD(MONTH,-1,DATETRUNC(MONTH,GETDATE())) --FIRST DATE OF THE PREVIOUS MONTH
+--ANOTHER WAY TO DO THE SAME THING DONE ABOVE
+SELECT 
+DATEFROMPARTS(YEAR(GETDATE()),MONTH(GETDATE()),1), 
+DATEADD(MONTH,-1,DATEFROMPARTS(YEAR(GETDATE()),MONTH(GETDATE()),1))
+SELECT 
+	OrderID,
+	DATEADD(MONTH,12,GETDATE()),	
+	MONTH(GETDATE())
+FROM Sales.Orders
+WHERE OrderDate <= GETDATE() AND OrderDate >= DATEADD(MONTH,-24,GETDATE()) 
+
 --IDENTIFY THE DUPLICATES USING THE RANK WINDOW FUNCTION 
 
 SELECT 
