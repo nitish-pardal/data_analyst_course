@@ -1,4 +1,19 @@
 -------------------------------------------------------------------------------------------------------------
+--FIND THE PRODUCTS THAT FALL WITHIN THE HIGEST 40 % OF THE PRICES 
+SELECT *,
+	[CUME PRICES] * 100 [PERCENT PRICES]
+FROM 
+( 
+	SELECT 
+		ProductID,
+		Product,
+		Category,
+		Price,
+		CUME_DIST() OVER (ORDER BY PRICE DESC) [CUME PRICES]
+	FROM Sales.Products
+)T
+WHERE [CUME PRICES] <= 0.4 
+
 --IN ORDER TO EXPORT THE DATE DIVIDE THE DATA IN THE ORDERS INTO 2 GROUPS .
 SELECT 
 CASE 
