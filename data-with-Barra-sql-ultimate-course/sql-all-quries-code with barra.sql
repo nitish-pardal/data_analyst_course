@@ -1,4 +1,6 @@
 -------------------------------------------------------------------------------------------------------------
+--done with the rank functions and left with the lag and other functions 
+
 --FIND THE PRODUCTS THAT FALL WITHIN THE HIGEST 40 % OF THE PRICES 
 SELECT *,
 	[CUME PRICES] * 100 [PERCENT PRICES]
