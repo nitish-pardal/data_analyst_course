@@ -1,5 +1,6 @@
 ------------------------------------------------------------------------------------------------------------- 
---VALUE FUNCTIONS 
+
+
 --IN ORDER TO ANALYZE CUSTOMERS LOYALTY BY RANKING THE CUSTOMERS 
 --BASED ON THEIR AVERAGE NUMBER OF DAYS BETWEEN ORDERS
 SELECT
@@ -33,7 +34,10 @@ FROM  (
 	FROM Sales.Orders
 	GROUP BY MONTH(OrderDate)
 ) T
-------------------------------------------------------------------------------------------------------------- 
+
+
+/*START OF VALUE FUNCTIONS SUCH AS LEAD AND LAG FIRST VALUE AND LAST VALUE FROM BOTTOM TO TOP */
+-------------------------------------------------- ^VALUE FUNCTIONS ^----------------------------------------------------------- 
 
 --FIND THE PRODUCTS THAT FALL WITHIN THE HIGEST 40 % OF THE PRICES 
 SELECT *,
@@ -455,7 +459,7 @@ SELECT
 FROM Sales.Orders
 GROUP BY ProductID
 
-
+/*START OF WINDOW FUNCTIONS FROM BOTTOM TO TOP ^*/
 --------------------------------------^WINDOW FUNCTIONS^----------------------------------------------------
 SELECT* 
 FROM Sales.Orders
@@ -566,6 +570,7 @@ Country,
 		ELSE 'N/A'
 	END AS CountryCode
 FROM Sales.Customers
+
 --retrieve employee details as gender displayed as full text
 SELECT 
 	EmployeeID,
@@ -693,6 +698,7 @@ SELECT
 	ISDATE('2025-08-20') DATECHECK3,
 	ISDATE('20') DATECHECK4
 
+/*DATE CALCULATION FUNCTIONS */
 
 --DATEDIFF 
 --THIS IS ALSO CALLED AS TIME GAP ANALYSIS
@@ -734,6 +740,7 @@ SELECT
 	DATEADD(DAY,5,CAST(CreationTime AS date)) AS [CREATION TIME AS DATE]
 FROM Sales.Orders
 
+/*CAST , CONVERT AND FORMAT FUNCTIONS */
 
 --CAST
 SELECT CAST('123' AS INT) AS [STRING AS INTEGER],
@@ -802,7 +809,7 @@ FORMAT(CreationTime,'MM','ja-jP')MM,
 FORMAT(CreationTime,'MMM')MMM 
 from Sales.Orders
 
-
+/*DATE FUNCTIONS */
 
 
 
@@ -1003,7 +1010,7 @@ FROM Sales.Orders
  --ORDER BY OrderID ASC
 
 --PRACTICE SESSION 07-03-2026
-
+/*DATE FUCTIONS */
 --HOW MANY ORDERS WERE PLACE EAH MONTH:
 
 SELECT 
@@ -1088,7 +1095,7 @@ SELECT
 FROM Sales.Orders
 	
 
-
+/*STRING FUNCTIONS */
 
 
 --practice session 05-03-2026
