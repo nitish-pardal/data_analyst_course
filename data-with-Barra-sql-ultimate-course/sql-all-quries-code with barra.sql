@@ -1,5 +1,20 @@
--------------------------------------------------------------------------------------------------------------
---done with the rank functions and left with the lag and other functions 
+------------------------------------------------------------------------------------------------------------- 
+--VALUE FUNCTIONS 
+-- FIND THE MONTH OVER MONTH PERFORMANCE BY FINDING THE PERCENTAGE CHANGE IN THE 
+--SALES BETWEEN THE CURRENT AND THE PREVIOUS MONTH . (PREVIOUS MONT NEED TO USE THE LAG FUNCTION )
+SELECT
+	*,
+	[CURRENT MONTH SALES]-[PREVIOUS MONTH SALES] AS [CHANGE IN SALES],
+	ROUND(CAST([CURRENT MONTH SALES]-[PREVIOUS MONTH SALES] AS float) / [CURRENT MONTH SALES] * 100 ,2) AS [MOM_PERCENT]
+FROM  (
+	SELECT
+		MONTH(OrderDate) [ORDER MONTH],
+		SUM(Sales)  [CURRENT MONTH SALES],
+		LAG(SUM(Sales),1,0) OVER (ORDER BY MONTH(ORDERDATE)) [PREVIOUS MONTH SALES] -- WE NEED THE SUM OF SALES FOR THE PREVIOUS MONTH NOT THE ACTUAL SALES 
+	FROM Sales.Orders
+	GROUP BY MONTH(OrderDate)
+) T
+------------------------------------------------------------------------------------------------------------- 
 
 --FIND THE PRODUCTS THAT FALL WITHIN THE HIGEST 40 % OF THE PRICES 
 SELECT *,
