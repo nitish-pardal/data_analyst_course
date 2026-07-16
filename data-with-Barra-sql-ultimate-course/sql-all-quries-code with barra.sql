@@ -1,3 +1,8 @@
+/*INFORMATION SCHEMA OF TABLES 
+METADATA ABOU THE TABLES */
+
+SELECT * FROM INFORMATION_SCHEMA.COLUMNS
+-- GIVES THE METADATA OF THE DATA STORED 
 
 /*SUBQUERIES FROM BOTTOM TO TOP */
 ------------------------------------------------------------------------------------------------------------- 
