@@ -1,10 +1,29 @@
+--FIND THE FEMALE EMPLOYEES WHOSE SALARIES ARE GREATER THAN ANY MALE EMPLOYEE 
+
+--FIND THE FEMALE EMPLOYEES WHOSE SALARIES ARE GREATER THAN ANY MALE EMPLOYEE 
+SELECT *
+FROM Sales.Employees
+WHERE Gender ='F'
+AND Salary >= ANY (
+					SELECT
+					Salary
+					FROM Sales.Employees
+					WHERE Gender = 'M'
+				 );
+
+
+SELECT 
+*,
+COUNT (*) OVER(PARTITION BY GENDER) 
+FROM Sales.Employees
+
 --SHOW THE DETAILS OF THE ORDERS MADE BY CUSTOMERS NOT IN GERMANY .
 SELECT 
 *
 FROM Sales.Orders
 WHERE CustomerID NOT IN (
 						SELECT 
-						CustomerID
+			 				CustomerID
 						FROM Sales.Customers
 						WHERE Country = 'Germany'
 						)
