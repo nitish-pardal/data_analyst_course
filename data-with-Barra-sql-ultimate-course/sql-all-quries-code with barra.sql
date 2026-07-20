@@ -1,3 +1,26 @@
+
+
+--SHOW THE DETAILS OF ORDERS MADE BY THE CUSTOMERS IN GERMANY 
+SELECT 
+	*
+FROM Sales.Orders O
+WHERE EXISTS (	SELECT 
+				1
+				FROM Sales.Customers C
+				WHERE Country = 'Germany' 
+				AND C.CustomerID = O.CustomerID)
+
+--MAIN QUERY
+SELECT 
+	*
+FROM Sales.Orders O
+WHERE EXISTS (	SELECT 
+				CustomerID -- SELECTING THE CUSTOMER ID IS REQUIRED HERE AND IS ALLRIGHT BUT THE BEST PRACTICE IS TO USE 1 (AS THE FIRST COLUMN IN THE SUBQUERY WRITTEN ABOVE)
+				FROM Sales.Customers C
+				WHERE Country = 'Germany' 
+				AND C.CustomerID = O.CustomerID)--CREATING RELATION BETWEEN CUSTOMER AND ORDER FOR CORRELATED SUBQUERY
+
+
 --SHOW ALL THE CUSTOMER DETAILS AND FIND THE TOTAL ORDERS FOR EACH CUSTOMER.
 
 SELECT
@@ -367,10 +390,13 @@ SELECT
 	OrderID,
 	ProductID,
 	Sales,
-	ROW_NUMBER()  OVER (ORDER BY SAles DESC) [ROW_NUMBER],
+	ROW_NUMBER()  OVER (PARTITION BY ORDERID ORDER BY SAles DESC) [ROW_NUMBER],
 	RANK() OVER (ORDER BY SALES DESC) [RANK FUNCTION],
 	DENSE_RANK() OVER (ORDER BY SALES DESC) [DENSE RANK]
-FROM Sales.Orders
+FROM Sales.OrdersArchive
+
+
+
 
 --CALCULATE THE MOVING AVERAGE OF SALES FOR EACH PRODUCT OVER TIME, INCLUDING ONLY THE NEXT ORDER
 SELECT 
@@ -1773,7 +1799,7 @@ SELECT * FROM persons
 
 --SELECT * FROM persons
 --INSERT using SELECT (INSERT  from the customer table to the person table)--
-/*
+
 --first SELECT the columns as the colums in the persons table
 -- Then INSERT it into the table
 INSERT INTO persons (id,person_name,birth_date,phone)
@@ -1781,7 +1807,6 @@ INSERT INTO persons (id,person_name,birth_date,phone)
 SELECT 
 id,first_name,NULL,'unknown'
 FROM customers
-*/
 
 
 /* created the table again for furure use and demonstrations 
