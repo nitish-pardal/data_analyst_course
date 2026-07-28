@@ -57,8 +57,8 @@ This repo is a living portfolio — it grows as I complete new courses, projects
 Feel free to explore, and reach out if you'd like to connect or collaborate!
 
 - **Resume:** See `NitishPardal_Resume_files/`
-- **LinkedIn:** _add your link here_
-- **Email:** _add your email here_
+- **LinkedIn:** www.linkedin.com/in/nitish-pardal/
+- **Email:** nitishpardal@gmail.com
 
 ---
 
