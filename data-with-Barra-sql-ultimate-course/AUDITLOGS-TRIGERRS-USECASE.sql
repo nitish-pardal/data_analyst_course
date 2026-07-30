@@ -1,0 +1,34 @@
+--step2 : create trigger on Employees Table
+
+CREATE TRIGGER trg_afterInsertEmployee ON sales.Employees
+AFTER INSERT 
+AS
+BEGIN 
+	INSERT INTO Sales.Employee_LOGS (EMPLOYEEID,LOGMESSAGE,LOGDATE)
+	SELECT 
+		EmployeeID,
+		'NEW EMPLOYEE ADDED = '+ CAST(EMPLOYEEID AS NVARCHAR),
+		GETDATE()
+	FROM inserted -- INSERTED IS A SPECIAL VITUAL TABLE THAT HOLDS A COPY OF THE ROWS THAT ARE BEING INSERTED INTO THE TARGET TABLE
+	--THIS IS ONLY AVAILABLE DURING THE EXECUTION OF THIS TRIGGER
+END;
+
+SELECT * FROM Sales.EMPLOYEE_LOGS
+
+INSERT INTO Sales.Employees
+	VALUES
+(8,'NITISH','PARDAL','IT','2000-08-08','F',55000,3);
+
+SELECT * FROM Sales.Employees
+
+
+/*========================================
+--STEP1 : CREATE TABLE AS EMPLOYEES LOGS
+--========================================*/
+
+CREATE TABLE SALES.Employee_logs  
+(	Logid INT IDENTITY(1,1) PRIMARY KEY,
+	EmployeeId INT ,
+	LogMessage VARCHAR(255),
+	LogDate DATETIME
+)
