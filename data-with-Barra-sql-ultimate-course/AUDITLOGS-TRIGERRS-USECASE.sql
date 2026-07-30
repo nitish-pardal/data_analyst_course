@@ -1,4 +1,20 @@
+--======================================================================
+--STEP 4 : SELECTING THE RECORDS FROM EMPLOYEE_LOGS TABLE TO SEE IF THE TRIGGER HAS FIRED AND INSERTED A RECORD INTO EMPLOYEE_LOGS TABLE
+--======================================================================
+
+SELECT * FROM Sales.EMPLOYEE_LOGS;
+
+--=======================================================================
+--STEP 3 : INSERTING A NEW RECORD INTO EMPLOYEES TABLE THAT WILL FIRE THE TRIGGER AND INSERT A RECORD INTO EMPLOYEE_LOGS TABLE
+--=======================================================================
+
+INSERT INTO Sales.Employees
+	VALUES
+(8,'NITISH','PARDAL','IT','2000-08-08','M',55000,3);
+
+--==========================================
 --step2 : create trigger on Employees Table
+--==========================================
 
 CREATE TRIGGER trg_afterInsertEmployee ON sales.Employees
 AFTER INSERT 
@@ -13,13 +29,7 @@ BEGIN
 	--THIS IS ONLY AVAILABLE DURING THE EXECUTION OF THIS TRIGGER
 END;
 
-SELECT * FROM Sales.EMPLOYEE_LOGS
 
-INSERT INTO Sales.Employees
-	VALUES
-(8,'NITISH','PARDAL','IT','2000-08-08','F',55000,3);
-
-SELECT * FROM Sales.Employees
 
 
 /*========================================
