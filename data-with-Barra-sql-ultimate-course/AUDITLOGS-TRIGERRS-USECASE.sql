@@ -29,9 +29,6 @@ BEGIN
 	--THIS IS ONLY AVAILABLE DURING THE EXECUTION OF THIS TRIGGER
 END;
 
-
-
-
 /*========================================
 --STEP1 : CREATE TABLE AS EMPLOYEES LOGS
 --========================================*/
