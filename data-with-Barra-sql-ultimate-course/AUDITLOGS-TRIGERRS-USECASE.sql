@@ -1,3 +1,11 @@
+SELECT 
+	*
+INTO SALES.DBCUSTOMERS
+FROM Sales.Customers
+
+
+
+
 --======================================================================
 --STEP 4 : SELECTING THE RECORDS FROM EMPLOYEE_LOGS TABLE TO SEE IF THE TRIGGER HAS FIRED AND INSERTED A RECORD INTO EMPLOYEE_LOGS TABLE
 --======================================================================
