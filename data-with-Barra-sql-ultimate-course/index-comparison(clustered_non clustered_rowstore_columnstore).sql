@@ -1,3 +1,4 @@
+
 --heap structure
 SELECT * 
 INTO FACT_INTERNETSALES_HP
