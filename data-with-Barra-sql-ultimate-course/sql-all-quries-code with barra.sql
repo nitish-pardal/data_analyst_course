@@ -1,3 +1,5 @@
+
+
 /*MONITORTRING DUPLICATE INDEXES*/
 USE SalesDB
 
@@ -32,17 +34,17 @@ SELECT * FROM SYS.dm_db_missing_index_details
 --MAKING A REPORT OF THE INDEXES USAGE COMBINING THE TABLES, INDEXES AND DMV (DYNAMIC MANAGEMENT VIEW) VIEW:
 
 SELECT 
-IDX.name AS INDEX_NAME,
-TBL.name AS TABLE_NAME,
-IDX.type_desc AS INDEX_TYPE,
-IDX.is_primary_key AS PRIMARY_KEY,
-IDX.is_unique AS IS_UNIQUE,
-IDX.is_disabled AS IS_DISABLED,
-S.user_seeks AS USER_SEEKS,
-S.user_scans AS USER_SCANS,
-S.user_lookups AS USER_LOOKUPS,
-S.user_updates AS USER_UPDATES,
-COALESCE(S.last_user_seek,S.LAST_USER_SCAN) AS LAST_UPDATE
+    IDX.name AS INDEX_NAME,
+    TBL.name AS TABLE_NAME,
+    IDX.type_desc AS INDEX_TYPE,
+    IDX.is_primary_key AS PRIMARY_KEY,
+    IDX.is_unique AS IS_UNIQUE,
+    IDX.is_disabled AS IS_DISABLED,
+    S.user_seeks AS USER_SEEKS,
+    S.user_scans AS USER_SCANS,
+    S.user_lookups AS USER_LOOKUPS,
+    S.user_updates AS USER_UPDATES,
+    COALESCE(S.last_user_seek,S.LAST_USER_SCAN) AS LAST_UPDATE
 FROM SYS.indexes AS IDX
 JOIN SYS.tables AS TBL
 ON IDX.object_id = TBL.object_id
