@@ -52,6 +52,57 @@ This repo is a living portfolio — it grows as I complete new courses, projects
 
 ---
 
+📁 Repository Structure
+
+data_analyst_course/
+│
+├── Handson-labs/
+│   ├── Excel exercises
+│   ├── SQL / database exercises
+│   ├── Jupyter notebooks
+│   ├── Dashboard files
+│   └── Supporting datasets
+│
+├── Project1(data Professional)/
+│   ├── README.md
+│   ├── Screenshot dashboard.png
+│   ├── final-project-powerbi.pbix
+│   └── final-project-powerbi.pdf
+│
+├── data-with-Barra-sql-ultimate-course/
+│   ├── datasets/
+│   ├── docs/
+│   ├── scripts/
+│   ├── Execution_plan.sql
+│   ├── index-comparison...
+│   └── SQL practice files
+│
+├── data-with-barra-tableau/
+│   └── Tableau coursework
+│
+├── python_data_cleaning_files/
+│   ├── Customer Call List.xlsx
+│   └── Customer Call List Cleaned.xlsx
+│
+├── mysql/
+│   ├── MySQL database exercises
+│   └── SQL scripts
+│
+├── data_set_for_data analytics course/
+│   └── Supporting datasets
+│
+├── certificates/
+│   └── Course certificates
+│
+├── NitishPardal_Resume_files/
+│   └── Resume supporting files
+│
+├── KPMG_50_Interview_QA.md.pdf
+│
+└── README.md
+
+---
+
 ## 📬 Connect With Me
 
 Feel free to explore, and reach out if you'd like to connect or collaborate!
