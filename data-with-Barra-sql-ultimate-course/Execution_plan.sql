@@ -12,12 +12,18 @@ ON FactResellerSales (CarrierTrackingNumber);
 SELECT * FROM 
 FactResellerSales
 WHERE CarrierTrackingNumber = '4911-403C-98';
+--Actual number of rows read in clustered index :12
+--all this information comes from the EXECUTION PLAN
 
 --SAME QUERY AS ABOVE EXECUTED WITH HEAP :
 --GIVEN QUERY COST FOR THE HEAP STRUCTURE Query 2: Query cost (relative to the batch): 96%
+
 SELECT * FROM 
 FactResellerSales_HP --TABLE FOR WHICH NO INDEX IS CREATED THUS HEAP
 WHERE CarrierTrackingNumber = '4911-403C-98';
+
+--Actual number of rows read in heap :60855
+--all this information comes from the EXECUTION PLAN
 
 
 
