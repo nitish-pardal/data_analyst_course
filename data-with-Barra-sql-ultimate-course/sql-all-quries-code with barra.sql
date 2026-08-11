@@ -1,5 +1,44 @@
 /*EXECUTION PLAN */
+--FOR THE SAME QUERY WHEN YOU CREATE A NON CLUSTERED INDEX THEN THE EXECUTION PLAN WILL CHANGE COMPLETELY
 
+SELECT * FROM 
+FactResellerSales
+WHERE CarrierTrackingNumber = '4911-403C-98';
+--Actual number of rows read in clustered index :12
+--all this information comes from the EXECUTION PLAN
+
+--SAME QUERY AS ABOVE EXECUTED WITH HEAP :
+--GIVEN QUERY COST FOR THE HEAP STRUCTURE Query 2: Query cost (relative to the batch): 96%
+
+SELECT * FROM 
+FactResellerSales_HP --TABLE FOR WHICH NO INDEX IS CREATED THUS HEAP
+WHERE CarrierTrackingNumber = '4911-403C-98';
+
+--Actual number of rows read in heap :60855
+--all this information comes from the EXECUTION PLAN
+
+
+
+------------------------------------------------------------------------------------------
+--EXECUTION PLAN FOR THE CLUSTERED--
+--USES THE INDEX SCAN: GOOD
+
+SELECT *
+FROM FactResellerSales
+order by SalesOrderNumber;/*TIME FOR THE EXECUTION OF SORTING IN THETHE CLUSTERED 
+IS LESSER BECAUSE OF THE FACT THAT ALL THE DATA IN THE CLUSTERED INDEX
+IS ALREDY SORTED*/
+
+
+
+-----------------------------------------------------------------------------------
+-- EXECUTION PLAN FOR THE HEAP 
+-- USES THE FULL TABLE SCAN : WORST AMONT THE 3 
+
+SELECT *
+FROM FactResellerSales_HP
+ORDER BY SalesOrderNumber;/*THIS TAKES MORE TIME BECAUSE IT NEEDS TO CREATE
+AN ADDITIONAL STEP FOR SORTING OUT THE DATA*/
 /*WAYS IN WHICH YOU CAN DEFREAGMENT YOUR INDEX*/
 
 ALTER INDEX idx_DBCUSTOMERS_FIRSTNAME ON SALES.DBCUSTOMERS REBUILD
