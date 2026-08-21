@@ -5,7 +5,7 @@ SELECT
 	O.Sales,
 	C.Country
 FROM Sales.Orders O
-LEFT JOIN Sales.Customers C WITH(INDEX ([IDX_CUSTOMER_COUNTRY]))
+LEFT JOIN Sales.Customers C WITH(INDEX ([PK_customers]))
 ON O.CustomerID = C.CustomerID
 
 --YOU CAN ALSO FORCE THE INDEX SEEK OR THE INDEX SCAN :
