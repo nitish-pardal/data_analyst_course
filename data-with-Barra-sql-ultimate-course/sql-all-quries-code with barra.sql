@@ -1,3 +1,6 @@
+
+-- you can use the copilot chat through shortcut ctrl + i for the inline code generation 
+
 /*PARTITIONS */
 --COMPARIRING THE PERFORMANCE OF THE PARTITIONED TABLE WITH THE NON PARTITIONED TABLE
 SELECT 
