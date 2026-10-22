@@ -1,4 +1,4 @@
-
+    
 -- you can use the copilot chat through shortcut ctrl + i for the inline code generation 
 
 /*PARTITIONS */
